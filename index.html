@@ -10,53 +10,96 @@
 
 </head>
 <body>
-    
-    <!-- <div id="final-price"></div> -->
-    
-    <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
-    
-    <section>
+    <!-- CONTAINER PARTE SUPERIORE -->
+    <div class="container">  
 
-        <div class="first-card">
+        <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+        
+        <section>
 
-           <div class="upper-card">
+            <div class="first-card">
 
-                <div class="left input">
-                    <h4>Nome Cognome</h4>
-                    <input type="text">
+            <div class="upper-card">
+
+                    <div class="left input">
+                        <h4>Nome Cognome</h4>
+                        <input type="text">
+                    </div>
+
+                    <div class="center input">
+                        <h4>Km da percorrere</h4>
+                        <input type="text">
+                    </div>
+
+                    <div class="right input">
+                        <h4>Fascia d'età</h4>
+                        <select name="" id="">
+                            <option value="Maggiorenne">Maggiorenne</option>
+                            <option value="Minorenne">Minorenne</option>
+                            <option value="Pensionato">Pensionato</option>
+                        </select>
+                    </div>
+
                 </div>
 
-                <div class="center input">
-                    <h4>Km da percorrere</h4>
-                    <input type="text">
+                <div class="bottom-card">
+                    <button>Genera</button>
+                    <button>Annulla</button>
                 </div>
-
-                <div class="right input">
-                    <h4>Fascia d'età</h4>
-                    <select name="" id="">
-                        <option value="Maggiorenne">Maggiorenne</option>
-                        <option value="Minorenne">Minorenne</option>
-                        <option value="Pensionato">Pensionato</option>
-                    </select>
-                </div>
-
             </div>
 
-            <div class="bottom-card">
-                <button>Genera</button>
-                <button>Annulla</button>
+        </section>
+
+    </div>  
+
+    <div id="invisible" class="container">
+        
+        <h1>IL TUO BIGLIETTO</h1>
+        
+        <section>
+            <div class="second-card">
+                
+                <h2>DETTAGLIO PASSEGGERI</h2>
+
+                <div class="ticket">
+
+                    <div class="passenger-name">
+
+                        <h2>NOME PASSEGGERO</h2>
+                        <h3>Jon Snow</h3>
+
+                    </div>
+
+                    <div class="ticket-details">
+
+                        <table>
+                            <thead>
+
+                                <tr>
+                                    <th>Offerta</th>
+                                    <th>Carrozza</th>
+                                    <th>Codice CP</th>
+                                    <th>Costo biglietto</th>
+                                </tr>
+
+                                <tr>
+                                    <td>Biglietto Standard</td>
+                                    <td>5</td>
+                                    <td>92911</td>
+                                    <td>2.10€</td>
+                                </tr>
+                                
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </section>
 
-    </section>
-    
-    <h1>IL TUO BIGLIETTO</h1>
-    
-    <section>
-
-    </section>
-
-    
+    </div>
     <script type="text/javascript" src="js/scripts.js"></script> 
 </body>
 </html>
