@@ -1,10 +1,3 @@
-
-// let kilometers = prompt("Quanti chilometri devi percorrere?");
-// let age = prompt("Quanti anni hai?");
-
-// console.log("chilometri: " + kilometers);
-// console.log("anni: " + age);
-
 let nameInput = document.getElementById("name-input");
 let kmInput = document.getElementById("km-input");
 let ageSelect = document.getElementById("age-select");
@@ -16,19 +9,28 @@ let passengerName = document.getElementById("passenger-name");
 
 let ticketPrice;
 
+ageSelect.value = "";
 
 createButton.addEventListener('click',
 
     function() {
-        console.log("cliccato su Genera")
-        console.log("Il nome dell'utente è:", nameInput.value);
-        console.log("I km da percorrere sono:", kmInput.value);
-        console.log("Il conducente è:", ageSelect.value);
+        // console.log("cliccato su Genera")
+        // console.log("Il nome dell'utente è:", nameInput.value);
+        // console.log("I km da percorrere sono:", kmInput.value);
+        // console.log("Il conducente è:", ageSelect.value);
+
+        let summary = prompt("Riepilogo dati inseriti: " + nameInput.value + ", " + kmInput.value + "km" + ", " + ageSelect.value + " Confermare?");
+        
+        if (summary === null) {
+            return;
+        }
+        
         invisibleContainer.style.display="block"
 
         //Il nome inserito dall'utente viene visualizzato nel biglietto
         document.getElementById('passenger-name').innerHTML = nameInput.value;
 
+        // Il tipo di biglietto varia a seconda dell'età dell'utente
         if (ageSelect.value == "Minorenne") {
             document.getElementById('passenger-age').innerHTML = "Biglietto Junior";
         }
@@ -44,7 +46,7 @@ createButton.addEventListener('click',
             return Math.floor(Math.random() * (max - min) ) + min;
         }
         
-        document.getElementById('cab').innerHTML = getRndInteger(0,10);
+        document.getElementById('cab').innerHTML = getRndInteger(1,10);
 
         // genero numero casuale codice
         function getRndInteger(min, max) {
@@ -52,45 +54,55 @@ createButton.addEventListener('click',
         }
         
         document.getElementById('code').innerHTML = getRndInteger(90000,99999);
+
+        // il prezzo del biglietto varia a seconda dell'età dell'utente
+
+        ticketPrice = 0.21 * kmInput.value;
+                
+        let youngerPrice;
+        let olderPrice;
+        
+        if (ageSelect.value == "Minorenne") {
+
+            youngerPrice = (ticketPrice - (ticketPrice * 20) / 100);
+        
+            youngerPrice = youngerPrice.toFixed(2);
+        
+            document.getElementById("price").innerHTML = youngerPrice + "€" ;
+            
+        }
+        
+        else if (ageSelect.value == "Pensionato") {
+
+            olderPrice = (ticketPrice - (ticketPrice * 40) / 100);
+        
+            olderPrice = olderPrice.toFixed(2);
+
+            document.getElementById("price").innerHTML = olderPrice + "€" ;
+        }
+        
+        else{            
+            document.getElementById("price").innerHTML = ticketPrice + "€" ;
+        }
+
+
+        
+
+    }
+
+)
+
+deleteButton.addEventListener('click',
+    //quando viene cliccato il pulsante "Annulla" i campi degli input vengono "svuotati"
+    function() {
+        nameInput.value = "";
+        kmInput.value = "";
+        ageSelect.value = "";
     }
 
 )
 
 
-// ticketPrice = 0.21 * kilometers;
-
-// console.log("prezzo del biglietto: " + ticketPrice +"€");
-
-
-// let youngerPrice;
-// let olderPrice;
-
-// if (age < 18) {
-//     youngerPrice = (ticketPrice - (ticketPrice * 20) / 100);
-
-//     youngerPrice = youngerPrice.toFixed(2);
-
-    // document.getElementById("final-price").innerHTML = "prezzo del biglietto con sconto giovani: " + youngerPrice + "€" ;
-
-//     console.log("prezzo scontato : " + youngerPrice + "€");
-
-// }
-
-// else if (age >= 65) {
-//     olderPrice = (ticketPrice - (ticketPrice * 40) / 100);
-
-//     olderPrice = olderPrice.toFixed(2);
-
-//     // document.getElementById("final-price").innerHTML = "prezzo del biglietto con sconto pensionati: " + olderPrice + "€" ;
-
-//     console.log("prezzo scontato : " + olderPrice + "€");
-// }
-
-// else{
-//     // document.getElementById("final-price").innerHTML = "prezzo del biglietto: " + ticketPrice + "€" ;
-
-//     console.log("prezzo del biglietto: " + ticketPrice + "€");
-// }
 
 
 
