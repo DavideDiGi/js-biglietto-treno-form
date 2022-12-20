@@ -55,7 +55,9 @@ input, select{
 }
 
 /* PARTE INFERIORE */
-
+#invisible-container{
+    display: none;
+}
 .container:last-of-type section{
     border-radius: 0px;
 }
@@ -71,7 +73,7 @@ input, select{
 .second-card > .ticket > .passenger-name{
     padding: 20px;
     background-color: grey;
-    width: 30%;
+    width: 32%;
 }
 .second-card > .ticket > .ticket-details{
     padding: 20px;
